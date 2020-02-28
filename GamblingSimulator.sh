@@ -80,7 +80,14 @@ do
       echo "Unluckiest day is : $findDay"
    fi
 done
-
+#ADDING TOTAL WIN AND LOSS MONEY
+total=win+loose
+if(($total > 0))
+then
+	echo "Continue to play next month"
+else
+	echo "Stop playing"
+fi
 
 
 
