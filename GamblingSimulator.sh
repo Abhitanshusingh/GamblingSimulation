@@ -10,6 +10,7 @@ loose=0
 win=0
 winningTime=0
 loosingTime=0
+declare -A gambling
 for(( day=1; day<=20 ;day++ ))
 do
 	STAKE=100
@@ -28,11 +29,16 @@ do
 	done
 	if (( $((STAKE-100))>0 ))
 	then
+		array[$day]=$(($STAKE-100))
 		winningTime=$(($winingTime+1))
 		win=$(($win+50))
+		echo  "Day $day  Won by   : ${array[$day]}"
 	else
+		array[$day]=$(($STAKE-100))
 		loosingTime=$(($loosingTime+1))
 		loose=$(($loose-50))
+		echo  "Day $day  Loose by : ${array[$day]}"
+
 	fi
 done
 echo "After 20 day Won $win"
